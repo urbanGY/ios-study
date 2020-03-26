@@ -1,0 +1,6 @@
+module Pods_NoticeBoard {
+  umbrella header "Pods-NoticeBoard-umbrella.h"
+
+  export *
+  module * { export * }
+}
