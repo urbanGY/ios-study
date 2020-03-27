@@ -11,70 +11,114 @@ import Alamofire
 import Kanna
 
 class BoardTableViewController: UITableViewController {
-    var NoticeList: [NoticeData] = []
+    var doneNoticeFlag: Bool = false;
+    var endFlag: Bool = false;
+    var index: Int = 1;
+    var moreFetch: Bool = true;
+    
+    @IBOutlet var customCellTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let baseUrl: String = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=1"
-        let url = URL(string: baseUrl)
-        AF.request(url!).response { response in
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                self.parsing(utf8Text)
-            }
-        }
-        
+        customCellTableView.delegate = self
+        customCellTableView.dataSource = self
+        self.crawlingData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem gg
     }
+    func crawlingData() -> Void {
+        var baseUrl: String = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page="
+        let requestUrl: String = baseUrl + String(index)
+        let url = URL(string: requestUrl)
+        AF.request(url!).response { response in
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                self.parsing(utf8Text)
+            }
+        }
+    }
     
     func parsing(_ inputHtml:String) -> Void {
         do {
             let htmlText = try HTML(html: inputHtml, encoding: .utf8)
-            
-            
-            for tr in htmlText.xpath("//tr[not(@*)]") {
+            for tr in htmlText.xpath("//tr[@class='bg1'] | //tr[@class='bg0'] ") {
                 var isNotice: Bool!
-                if let checkNotice = tr.at_xpath("//b"){
+                var title: String!
+                var date: String!
+
+                if let checkNotice = tr.at_xpath("td[@class='num']/b"){
                     isNotice = true
                 } else {
                     isNotice = false
                 }
-                if let title = tr.at_xpath("//span[@class='notice']") {
-                    print(title.text!)
+//                print("isNotice : \(isNotice!) , doneNotice : \(doneNoticeFlag)")
+                if doneNoticeFlag && isNotice {
+                    continue
                 }
-                if let date = tr.at_xpath("//td[@class='datetime']") {
-                    print(date.text!)
+                if let titleVal = tr.at_xpath(".//span[@class='notice'] | .//a") {
+                    title = titleVal.text!
                 }
-                
+                if let dateVal = tr.at_xpath("td[@class='datetime']") {
+                    date = dateVal.text!
+                }
+                NoticeData.noticeList.append(NoticeData(isNotice:isNotice, title:title, date:date))
             }
-            
+            print("count : \(NoticeData.noticeList.count)")
+            doneNoticeFlag = true
+            index = index + 1
+            moreFetch = true
+            tableView.reloadData()
         } catch let error {
             print("Error int pharsing: \(error)")
         }
     }
     
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if moreFetch {
+                moreFetch = false
+                self.crawlingData()
+            }else {
+                print("doing fetching... wait...")
+            }
+        }
     }
-
+    // MARK: - Table view data source
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return 0
+//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 71
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+<<<<<<< HEAD
         // #warning Incomplete implementation, return the number of rows gg
         return 0
+=======
+        return NoticeData.noticeList.count
+>>>>>>> c6cda0c346f0ef13ba0567cef56249e3ca366ebf
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! NoticeTableViewCell
+        let target = NoticeData.noticeList[indexPath.row]
+        
+        cell.noticeCell?.text = target.GetIsNotice()
+        cell.titleCell?.text = target.GetTitle()
+        cell.dateCell?.text = target.GetDate()
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
