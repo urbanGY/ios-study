@@ -100,12 +100,7 @@ class BoardTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-<<<<<<< HEAD
-        // #warning Incomplete implementation, return the number of rows gg
-        return 0
-=======
         return NoticeData.noticeList.count
->>>>>>> c6cda0c346f0ef13ba0567cef56249e3ca366ebf
     }
 
     
