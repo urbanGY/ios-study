@@ -14,6 +14,7 @@
 		2F16CC6F242C98A30022E4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F16CC6D242C98A30022E4B4 /* LaunchScreen.storyboard */; };
 		2F16CC77242C9D3A0022E4B4 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F16CC76242C9D3A0022E4B4 /* BoardTableViewController.swift */; };
 		2F44CB2E242CECAE00A463C0 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44CB2D242CECAE00A463C0 /* model.swift */; };
+		2FC0FCDD242E4C8D00D0DA54 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0FCDC242E4C8D00D0DA54 /* NoticeTableViewCell.swift */; };
 		BA94D65A312CAE19AD422A44 /* libPods-NoticeBoard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1FCF5939989B2B0574D900 /* libPods-NoticeBoard.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2F16CC70242C98A30022E4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F16CC76242C9D3A0022E4B4 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
 		2F44CB2D242CECAE00A463C0 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		2FC0FCDC242E4C8D00D0DA54 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		750A18BEEC0D46F1BAAFBBCE /* Pods-NoticeBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoticeBoard.release.xcconfig"; path = "Target Support Files/Pods-NoticeBoard/Pods-NoticeBoard.release.xcconfig"; sourceTree = "<group>"; };
 		7C1FCF5939989B2B0574D900 /* libPods-NoticeBoard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NoticeBoard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FAF1ED86A035CAA1FEEBA8B /* Pods-NoticeBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoticeBoard.debug.xcconfig"; path = "Target Support Files/Pods-NoticeBoard/Pods-NoticeBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				2F16CC6D242C98A30022E4B4 /* LaunchScreen.storyboard */,
 				2F16CC70242C98A30022E4B4 /* Info.plist */,
 				2F16CC76242C9D3A0022E4B4 /* BoardTableViewController.swift */,
+				2FC0FCDC242E4C8D00D0DA54 /* NoticeTableViewCell.swift */,
 			);
 			path = NoticeBoard;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				2F16CC77242C9D3A0022E4B4 /* BoardTableViewController.swift in Sources */,
 				2F16CC63242C98A20022E4B4 /* AppDelegate.swift in Sources */,
 				2F16CC65242C98A20022E4B4 /* SceneDelegate.swift in Sources */,
+				2FC0FCDD242E4C8D00D0DA54 /* NoticeTableViewCell.swift in Sources */,
 				2F44CB2E242CECAE00A463C0 /* model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

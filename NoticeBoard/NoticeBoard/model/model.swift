@@ -19,8 +19,12 @@ class NoticeData {
         self.Date = date
     }
     
-    func GetIsNotice() -> Bool {
-        return self.IsNotice
+    func GetIsNotice() -> String {
+        if self.IsNotice {
+            return "공지"
+        }else {
+            return "  "
+        }
     }
     
     func GetTitle() -> String {
@@ -30,4 +34,6 @@ class NoticeData {
     func GetDate() -> String {
         return self.Date
     }
+    
+    static var noticeList: [NoticeData] = []
 }
