@@ -18,6 +18,18 @@ class BoardTableViewController: UITableViewController {
     
     @IBOutlet var customCellTableView: UITableView!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? NoticeTableViewCell, let indexPath = tableView.indexPath(for: cell){
+            let sendData = NoticeData.noticeList[indexPath.row]
+            print("send date : \(sendData.GetDate())")
+            if let vc = segue.destination as? ContentViewController {
+                vc.data = sendData
+            } else {
+                print("fail..")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customCellTableView.delegate = self
@@ -47,7 +59,8 @@ class BoardTableViewController: UITableViewController {
                 var isNotice: Bool!
                 var title: String!
                 var date: String!
-
+                var url: String!
+                
                 if let checkNotice = tr.at_xpath("td[@class='num']/b"){
                     isNotice = true
                 } else {
@@ -57,13 +70,19 @@ class BoardTableViewController: UITableViewController {
                 if doneNoticeFlag && isNotice {
                     continue
                 }
+                if let urlVal = tr.at_xpath(".//a"){
+                    let linkUrl:String! = urlVal["href"]
+                    let startIdx:String.Index = linkUrl.index(linkUrl.startIndex, offsetBy: 3)
+//                    print("2 : \(strObj[strObj.startIndex...endIdx])")
+                    url = String(linkUrl[startIdx...])
+                }
                 if let titleVal = tr.at_xpath(".//span[@class='notice'] | .//a") {
                     title = titleVal.text!
                 }
                 if let dateVal = tr.at_xpath("td[@class='datetime']") {
                     date = dateVal.text!
                 }
-                NoticeData.noticeList.append(NoticeData(isNotice:isNotice, title:title, date:date))
+                NoticeData.noticeList.append(NoticeData(isNotice: isNotice, title: title, date: date, url: url))
             }
             print("count : \(NoticeData.noticeList.count)")
             doneNoticeFlag = true
