@@ -12,11 +12,13 @@ class NoticeData {
     var IsNotice: Bool
     var Title: String
     var Date: String
+    var url: String
     
-    init(isNotice:Bool, title:String, date:String) {
+    init(isNotice:Bool, title:String, date:String, url:String) {
         self.IsNotice = isNotice
         self.Title = title
         self.Date = date
+        self.url = "https://sw.ssu.ac.kr/" + url
     }
     
     func GetIsNotice() -> String {
@@ -33,6 +35,10 @@ class NoticeData {
     
     func GetDate() -> String {
         return self.Date
+    }
+    
+    func GetUrl() -> String {
+        return self.url
     }
     
     static var noticeList: [NoticeData] = []
