@@ -60,6 +60,7 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
                     
                     if let fileNameVal = tr.at_xpath(".//span"){
                         fileName = fileNameVal.text!
+                        fileName = fileSlice(fileName: fileName)
                         print("file name : \(fileName!)")
                     }
                     if let fileUrlVal = tr.at_xpath(".//a") {
@@ -80,6 +81,15 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
         }catch let error {
             print("Error int pharsing: \(error)")
         }
+    }
+    
+    func fileSlice(fileName:String?) -> String {
+        let findIdx:String.Index = fileName!.firstIndex(of: ".")!
+        let file = String(fileName![..<findIdx])
+        let tmp = String(fileName![findIdx...])
+        let endIdx: String.Index = tmp.index(tmp.startIndex, offsetBy: 4)
+        let result = file + String(tmp[..<endIdx])
+        return result
     }
     
     // https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=1066&no=0&page=1
@@ -107,8 +117,35 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("touch!, \(indexPath.row)")
-        //터치했을 때 파일 다운로드 하게 만들기
+        let fileName = itemList[indexPath.row].GetFileName()
+        let url = itemList[indexPath.row].GetFileUrl()
+        
+        let destination: DownloadRequest.Destination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(fileName)
+
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        AF.download(url, to: destination).response { response in
+            debugPrint(response)
+            if response.error == nil, let filePath = response.fileURL?.path {
+                print("in success!! \(filePath)")
+            }else {
+                print("fail..")
+            }
+        }
+//        guard var realLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
+//        realLocation.appendPathComponent(fileName)
+//        print("\(realLocation.absoluteString)")
+//        print("write?")
+//        let fileManager = FileManager.default
+//        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        print("\(documentsURL)")
+//        let fileURL = documentsURL.appendingPathComponent("zedd의 파일")
+//        print("\(fileURL)")
+//        let myTextString = NSString(string: "HELLO WORLD")
+//        try? myTextString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8.rawValue)
+//        print("done")
     }
 
 
