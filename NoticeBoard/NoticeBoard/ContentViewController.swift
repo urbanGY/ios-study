@@ -101,12 +101,12 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
         return "https://sw.ssu.ac.kr/bbs\(result)"
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList.count
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 61
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,13 +129,24 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
         AF.download(url, to: destination).response { response in
             debugPrint(response)
             if response.error == nil, let filePath = response.fileURL?.path {
+                guard var realLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
+                let f_url = realLocation.appendingPathComponent(fileName)
+                do {
+                    var obj:[Any] = [f_url as Any, fileName as Any]
+                    let activityVC = UIActivityViewController(activityItems: obj, applicationActivities: nil)
+//                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+                    self.present(activityVC, animated: true, completion: nil)
+                    
+                }catch let error {
+                    print("error in Data... \(error)")
+                }
                 print("in success!! \(filePath)")
             }else {
                 print("fail..")
             }
         }
-//        guard var realLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
-//        realLocation.appendPathComponent(fileName)
+        
+        
 //        print("\(realLocation.absoluteString)")
 //        print("write?")
 //        let fileManager = FileManager.default
@@ -147,6 +158,8 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
 //        try? myTextString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8.rawValue)
 //        print("done")
     }
+    
+    
 
 
 
