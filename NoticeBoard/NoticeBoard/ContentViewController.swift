@@ -132,7 +132,12 @@ class ContentViewController: UIViewController, UITableViewDataSource, UITableVie
                 guard var realLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
                 let f_url = realLocation.appendingPathComponent(fileName)
                 do {
-                    var obj:[Any] = [f_url as Any, fileName as Any]
+//                    let encoding = String.Encoding(rawValue: CFStringConvertEncodingToNSStringEncoding(0x0422))
+//                    let f_content = try String(contentsOf: f_url, encoding: .utf8)
+//                    var obj:[String] = [f_content]
+                    
+                    
+                    var obj = [f_url]
                     let activityVC = UIActivityViewController(activityItems: obj, applicationActivities: nil)
 //                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
                     self.present(activityVC, animated: true, completion: nil)
