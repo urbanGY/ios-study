@@ -1,4 +1,6 @@
-# study swift! start at 2020.03.24
+# Study Swift
+
+* start at 2020.03.24
 
 ### Assignment 2.
 
