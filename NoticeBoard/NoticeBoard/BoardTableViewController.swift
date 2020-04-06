@@ -11,6 +11,7 @@ import Alamofire
 import Kanna
 
 class BoardTableViewController: UITableViewController {
+    
     var doneNoticeFlag: Bool = false;
     var endFlag: Bool = false;
     var index: Int = 1;
@@ -41,6 +42,7 @@ class BoardTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem gg
     }
+    
     func crawlingData() -> Void {
         var baseUrl: String = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page="
         let requestUrl: String = baseUrl + String(index)
@@ -66,14 +68,12 @@ class BoardTableViewController: UITableViewController {
                 } else {
                     isNotice = false
                 }
-//                print("isNotice : \(isNotice!) , doneNotice : \(doneNoticeFlag)")
                 if doneNoticeFlag && isNotice {
                     continue
                 }
                 if let urlVal = tr.at_xpath(".//a"){
                     let linkUrl:String! = urlVal["href"]
                     let startIdx:String.Index = linkUrl.index(linkUrl.startIndex, offsetBy: 3)
-//                    print("2 : \(strObj[strObj.startIndex...endIdx])")
                     url = String(linkUrl[startIdx...])
                 }
                 if let titleVal = tr.at_xpath(".//span[@class='notice'] | .//a") {
