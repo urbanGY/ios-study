@@ -1,0 +1,7 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Assignment3' do
+  pod 'Alamofire', '~> 5.0'
+  pod 'Kanna', '~> 5.2.0'
+end
