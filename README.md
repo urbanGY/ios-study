@@ -9,3 +9,7 @@
 ### Assignment 3-1.
 
 ![assignment3-1_sumul](https://user-images.githubusercontent.com/34535994/78647011-ece4ea80-78f4-11ea-9dfc-3e8615720bb6.gif)
+
+### assignment 3-2.
+
+![Assignment3-2_simul](https://user-images.githubusercontent.com/34535994/78757759-f8e5b080-79b7-11ea-9234-205fb47ae4fb.gif)
