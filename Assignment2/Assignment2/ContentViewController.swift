@@ -28,6 +28,9 @@ class ContentViewController: UIViewController {
     @IBAction func registerButton(_ sender: UIButton) {
         let title = titleText.text!
         let content = contentText.text!
+        CoreManager.shared.saveMemo(title: title, content: content) { onSuccess in
+            print("saved = \(onSuccess)")
+        }
         let data = NoticeData(title: title, content: content)
         delegate?.provider(data, rowIndex)
         self.navigationController?.popViewController(animated: true)

@@ -29,6 +29,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         noticeTableView.delegate = self
         noticeTableView.dataSource = self
+        let memo: [Memo] = CoreManager.shared.getMemo()
+        let saveTitle: [String] = memo.map({$0.title!})
+        print("all title: \(saveTitle)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
