@@ -14,14 +14,7 @@ class CoreManager {
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     lazy var context = appDelegate?.persistentContainer.viewContext
     let modelName: String = "Memo"
-    
-//    static let shared: CoreDataManager = CoreDataManager()
-//
-//    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-//    lazy var context = appDelegate?.persistentContainer.viewContext
-//
-//    let modelName: String = "Users"
-    
+        
     func getMemo(ascending:Bool = false) -> [Memo] {
         var models: [Memo] = [Memo]()
         
@@ -56,15 +49,34 @@ class CoreManager {
             }
         }
     }
+    
+    func deleteMemo(title: String , onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(title)
+        
+        do {
+            if let results: [Memo] = try context?.fetch(fetchRequest) as? [Memo] {
+                if results.count != 0 {
+                    context?.delete(results[0])
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fatch🥺: \(error), \(error.userInfo)")
+            onSuccess(false)
+        }
+        
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
 }
 
 extension CoreManager {
-//    fileprivate func filteredRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-//            = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
-//        fetchRequest.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
-//        return fetchRequest
-//    }
+    fileprivate func filteredRequest(_ title: String) -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+            = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
+        fetchRequest.predicate = NSPredicate(format: "title = %@", NSString(string: title))
+        return fetchRequest
+    }
     
     fileprivate func contextSave(onSuccess: ((Bool) -> Void)) {
         do {

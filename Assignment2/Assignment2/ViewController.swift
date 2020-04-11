@@ -10,6 +10,7 @@ import UIKit
 
 protocol contentDelegate {
     func provider(_ noticeData:NoticeData, _ rowIndex:Int?)
+    func remover(_ rowIndex:Int?)
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, contentDelegate { // 여기에 delegate 꼭 추가해줘야 아래에 = self 가 가능
@@ -25,13 +26,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func remover(_ rowIndex: Int?) {
+        self.noticeList.remove(at: rowIndex!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         noticeTableView.delegate = self
         noticeTableView.dataSource = self
         let memo: [Memo] = CoreManager.shared.getMemo()
-        let saveTitle: [String] = memo.map({$0.title!})
-        print("all title: \(saveTitle)")
+        for elem in memo {
+            let saveTitle = elem.title!
+            let saveContent = elem.content!
+            self.noticeList.append(NoticeData(title: saveTitle, content: saveContent))
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

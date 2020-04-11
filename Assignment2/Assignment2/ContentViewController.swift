@@ -36,7 +36,16 @@ class ContentViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
+    @IBAction func deleteButton(_ sender: UIButton) {
+        if let curTitle = self.noticeData?.getTitle() { // 만약 저장하기 전에 바로 삭제버튼을 누른다면 noticeData 배열에 주가되기 전임으로 nil이 된다.
+            CoreManager.shared.deleteMemo(title: curTitle) { onSuccess in
+                print("deleted = \(onSuccess)")
+            }
+            delegate?.remover(rowIndex)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
