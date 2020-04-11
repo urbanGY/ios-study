@@ -16,6 +16,10 @@
 		2F05AB98243B17C1002B1D2C /* noticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F05AB97243B17C1002B1D2C /* noticeModel.swift */; };
 		2F05AB9A243B19EF002B1D2C /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F05AB99243B19EF002B1D2C /* NoticeTableViewCell.swift */; };
 		2F05AB9C243B1FC5002B1D2C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */; };
+		2F2AF5C92440C173005A766D /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5C82440C173005A766D /* CoreManager.swift */; };
+		2F2AF5CC2440CC8E005A766D /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */; };
+		2F2AF5D72440CF04005A766D /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */; };
+		2F2AF5D82440CF04005A766D /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		2F05AB97243B17C1002B1D2C /* noticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeModel.swift; sourceTree = "<group>"; };
 		2F05AB99243B19EF002B1D2C /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		2F2AF5C82440C173005A766D /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
+		2F2AF5CB2440CC8E005A766D /* Memo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memo.xcdatamodel; sourceTree = "<group>"; };
+		2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataClass.swift"; path = "Assignment2/Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataProperties.swift"; path = "Assignment2/Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,8 @@
 		2F05AB76243B14EF002B1D2C = {
 			isa = PBXGroup;
 			children = (
+				2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */,
+				2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */,
 				2F05AB81243B14EF002B1D2C /* Assignment2 */,
 				2F05AB80243B14EF002B1D2C /* Products */,
 			);
@@ -72,6 +82,8 @@
 				2F05AB90243B14F1002B1D2C /* Info.plist */,
 				2F05AB99243B19EF002B1D2C /* NoticeTableViewCell.swift */,
 				2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */,
+				2F2AF5C82440C173005A766D /* CoreManager.swift */,
+				2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */,
 			);
 			path = Assignment2;
 			sourceTree = "<group>";
@@ -158,9 +170,13 @@
 				2F05AB87243B14EF002B1D2C /* ViewController.swift in Sources */,
 				2F05AB83243B14EF002B1D2C /* AppDelegate.swift in Sources */,
 				2F05AB85243B14EF002B1D2C /* SceneDelegate.swift in Sources */,
+				2F2AF5D82440CF04005A766D /* Memo+CoreDataProperties.swift in Sources */,
+				2F2AF5D72440CF04005A766D /* Memo+CoreDataClass.swift in Sources */,
+				2F2AF5C92440C173005A766D /* CoreManager.swift in Sources */,
 				2F05AB9A243B19EF002B1D2C /* NoticeTableViewCell.swift in Sources */,
 				2F05AB9C243B1FC5002B1D2C /* ContentViewController.swift in Sources */,
 				2F05AB98243B17C1002B1D2C /* noticeModel.swift in Sources */,
+				2F2AF5CC2440CC8E005A766D /* Memo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F2AF5CB2440CC8E005A766D /* Memo.xcdatamodel */,
+			);
+			currentVersion = 2F2AF5CB2440CC8E005A766D /* Memo.xcdatamodel */;
+			path = Memo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F05AB77243B14EF002B1D2C /* Project object */;
 }

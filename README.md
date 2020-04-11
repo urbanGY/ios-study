@@ -17,3 +17,7 @@
 ### assignment 5.
 
 ![assignment5_simul](https://user-images.githubusercontent.com/34535994/78912112-2f0f5700-7ac2-11ea-92ce-db9ee16a1d55.gif)
+
+### assignment 7.
+
+![assignment7_simul](https://user-images.githubusercontent.com/34535994/79045354-99043980-7c45-11ea-8e3e-11f38dd25ad2.gif)
