@@ -29,7 +29,7 @@ class CoreManager {
                     models = fetchResult
                 }
             } catch let error as NSError {
-                print("Could not fetch🥺: \(error), \(error.userInfo)")
+                print("Could not fetch: \(error), \(error.userInfo)")
             }
         }
         return models
@@ -51,7 +51,30 @@ class CoreManager {
     }
     
     func deleteMemo(title: String , onSuccess: @escaping ((Bool) -> Void)) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(title)
+        let fetchRequest: NSFetchRequest<NSManagedObject> = filteredRequest()
+                
+        do {
+            if let results: [Memo] = try context?.fetch(fetchRequest) as? [Memo] {
+                if results.count != 0 {
+                    for elem in results {
+                        if elem.title == title {
+                            context?.delete(elem)
+                        }
+                    }
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fatch: \(error), \(error.userInfo)")
+            onSuccess(false)
+        }
+        
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
+    
+    func deleteMemoNSPredicate(title: String , onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequestNSPredicate(title)
         
         do {
             if let results: [Memo] = try context?.fetch(fetchRequest) as? [Memo] {
@@ -60,7 +83,7 @@ class CoreManager {
                 }
             }
         } catch let error as NSError {
-            print("Could not fatch🥺: \(error), \(error.userInfo)")
+            print("Could not fatch: \(error), \(error.userInfo)")
             onSuccess(false)
         }
         
@@ -68,10 +91,19 @@ class CoreManager {
             onSuccess(success)
         }
     }
+
 }
 
 extension CoreManager {
-    fileprivate func filteredRequest(_ title: String) -> NSFetchRequest<NSFetchRequestResult> {
+    fileprivate func filteredRequest() -> NSFetchRequest<NSManagedObject> {
+        let idSort: NSSortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        let fetchRequest: NSFetchRequest<NSManagedObject>
+            = NSFetchRequest<NSManagedObject>(entityName: modelName)
+        fetchRequest.sortDescriptors = [idSort]
+        return fetchRequest
+    }
+    
+    fileprivate func filteredRequestNSPredicate(_ title: String) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
             = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
         fetchRequest.predicate = NSPredicate(format: "title = %@", NSString(string: title))
@@ -83,7 +115,7 @@ extension CoreManager {
             try context?.save()
             onSuccess(true)
         } catch let error as NSError {
-            print("Could not save🥶: \(error), \(error.userInfo)")
+            print("Could not save: \(error), \(error.userInfo)")
             onSuccess(false)
         }
     }
