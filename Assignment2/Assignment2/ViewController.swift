@@ -14,15 +14,27 @@ protocol contentDelegate {
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, contentDelegate { // 여기에 delegate 꼭 추가해줘야 아래에 = self 가 가능
-    
+    var maxId:Int64 = 0
     var noticeList:[NoticeData] = []
     @IBOutlet weak var noticeTableView: UITableView!
     
     func provider(_ noticeData:NoticeData, _ rowIndex:Int?) {
+        var title = noticeData.getTitle()
+        var content = noticeData.getContent()
+        var id: Int64
+        
         if let row = rowIndex {
             noticeList[row] = noticeData
+            id = noticeData.getId()
         }else {
+            maxId = maxId + 1
+            id = maxId
+            noticeData.setId(id: id)
             noticeList.append(noticeData)
+        }
+        
+        CoreManager.shared.saveMemo(id: id, title: title, content: content) { onSuccess in
+            print("saved = \(onSuccess)")
         }
     }
     
@@ -34,12 +46,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         noticeTableView.delegate = self
         noticeTableView.dataSource = self
-        let memo: [Memo] = CoreManager.shared.getMemo()
+        let memo: [Memo] = CoreManager.shared.getMemo(ascending: true)
         for elem in memo {
+            let saveId = elem.id
+            print("save id : \(saveId)")
             let saveTitle = elem.title!
             let saveContent = elem.content!
-            self.noticeList.append(NoticeData(title: saveTitle, content: saveContent))
+            var data = NoticeData(title: saveTitle, content: saveContent)
+            data.setId(id: saveId)
+            self.noticeList.append(data)
         }
+        maxId = self.noticeList[self.noticeList.count-1].getId()
     }
     
     override func viewWillAppear(_ animated: Bool) {

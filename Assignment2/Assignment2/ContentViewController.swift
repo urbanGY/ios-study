@@ -16,21 +16,20 @@ class ContentViewController: UIViewController {
     var delegate: contentDelegate?
     var noticeData: NoticeData? = nil
     var rowIndex: Int? = nil
+    var id: Int64?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let noticeData = noticeData {
             titleText.text = noticeData.getTitle()
             contentText.text = noticeData.getContent()
+            id = noticeData.getId()
         }
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
         let title = titleText.text!
         let content = contentText.text!
-        CoreManager.shared.saveMemo(title: title, content: content) { onSuccess in
-            print("saved = \(onSuccess)")
-        }
         let data = NoticeData(title: title, content: content)
         delegate?.provider(data, rowIndex)
         self.navigationController?.popViewController(animated: true)
