@@ -19,7 +19,7 @@ class CoreManager {
         var models: [Memo] = [Memo]()
         
         if let context = context {
-            let idSort: NSSortDescriptor = NSSortDescriptor(key: "title", ascending: ascending)
+            let idSort: NSSortDescriptor = NSSortDescriptor(key: "id", ascending: ascending)
             let fetchRequest: NSFetchRequest<NSManagedObject>
                 = NSFetchRequest<NSManagedObject>(entityName: modelName)
             fetchRequest.sortDescriptors = [idSort]
@@ -35,12 +35,13 @@ class CoreManager {
         return models
     }
     
-    func saveMemo(title: String, content: String, onSuccess: @escaping ((Bool) -> Void)) {
+    func saveMemo(id:Int64, title: String, content: String, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context,
             let entity: NSEntityDescription
             = NSEntityDescription.entity(forEntityName: modelName, in: context) {
             
-            if let memo: Memo = NSManagedObject(entity: entity, insertInto: context) as? Memo {                
+            if let memo: Memo = NSManagedObject(entity: entity, insertInto: context) as? Memo {
+                memo.id = id
                 memo.title = title
                 memo.content = content
                 contextSave { success in

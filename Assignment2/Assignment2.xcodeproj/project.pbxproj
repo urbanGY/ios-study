@@ -18,9 +18,40 @@
 		2F05AB9C243B1FC5002B1D2C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */; };
 		2F2AF5C92440C173005A766D /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5C82440C173005A766D /* CoreManager.swift */; };
 		2F2AF5CC2440CC8E005A766D /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */; };
-		2F2AF5D72440CF04005A766D /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */; };
-		2F2AF5D82440CF04005A766D /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */; };
+		2FE2FB8E24481DD500EBFD20 /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8C24481DD500EBFD20 /* Memo+CoreDataClass.swift */; };
+		2FE2FB8F24481DD500EBFD20 /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8D24481DD500EBFD20 /* Memo+CoreDataProperties.swift */; };
+		2FE2FB972448369200EBFD20 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE2FB962448369200EBFD20 /* NotificationCenter.framework */; };
+		2FE2FB9A2448369200EBFD20 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB992448369200EBFD20 /* TodayViewController.swift */; };
+		2FE2FB9D2448369200EBFD20 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FE2FB9B2448369200EBFD20 /* MainInterface.storyboard */; };
+		2FE2FBA12448369200EBFD20 /* MemoWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2FE2FB942448369200EBFD20 /* MemoWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2FE2FBA924483B4B00EBFD20 /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */; };
+		2FE2FBB1244841B300EBFD20 /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8D24481DD500EBFD20 /* Memo+CoreDataProperties.swift */; };
+		2FE2FBB2244841B700EBFD20 /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8C24481DD500EBFD20 /* Memo+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FE2FB9F2448369200EBFD20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F05AB77243B14EF002B1D2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FE2FB932448369200EBFD20;
+			remoteInfo = MemoWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2FE2FBA52448369200EBFD20 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2FE2FBA12448369200EBFD20 /* MemoWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F05AB7F243B14EF002B1D2C /* Assignment2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,8 +67,15 @@
 		2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		2F2AF5C82440C173005A766D /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		2F2AF5CB2440CC8E005A766D /* Memo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memo.xcdatamodel; sourceTree = "<group>"; };
-		2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataClass.swift"; path = "Assignment2/Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataProperties.swift"; path = "Assignment2/Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2FE2FB8C24481DD500EBFD20 /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2FE2FB8D24481DD500EBFD20 /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2FE2FB942448369200EBFD20 /* MemoWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemoWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FE2FB962448369200EBFD20 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2FE2FB992448369200EBFD20 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2FE2FB9C2448369200EBFD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2FE2FB9E2448369200EBFD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FE2FBA62448372300EBFD20 /* Assignment2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Assignment2.entitlements; sourceTree = "<group>"; };
+		2FE2FBA72448375700EBFD20 /* MemoWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidget.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,15 +86,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FE2FB912448369200EBFD20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE2FB972448369200EBFD20 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2F05AB76243B14EF002B1D2C = {
 			isa = PBXGroup;
 			children = (
-				2F2AF5D52440CF04005A766D /* Memo+CoreDataClass.swift */,
-				2F2AF5D62440CF04005A766D /* Memo+CoreDataProperties.swift */,
+				2FE2FB8C24481DD500EBFD20 /* Memo+CoreDataClass.swift */,
+				2FE2FB8D24481DD500EBFD20 /* Memo+CoreDataProperties.swift */,
 				2F05AB81243B14EF002B1D2C /* Assignment2 */,
+				2FE2FB982448369200EBFD20 /* MemoWidget */,
+				2FE2FB952448369200EBFD20 /* Frameworks */,
 				2F05AB80243B14EF002B1D2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2F05AB7F243B14EF002B1D2C /* Assignment2.app */,
+				2FE2FB942448369200EBFD20 /* MemoWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +121,7 @@
 		2F05AB81243B14EF002B1D2C /* Assignment2 */ = {
 			isa = PBXGroup;
 			children = (
+				2FE2FBA62448372300EBFD20 /* Assignment2.entitlements */,
 				2F05AB96243B17A7002B1D2C /* model */,
 				2F05AB82243B14EF002B1D2C /* AppDelegate.swift */,
 				2F05AB84243B14EF002B1D2C /* SceneDelegate.swift */,
@@ -96,6 +146,25 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		2FE2FB952448369200EBFD20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FE2FB962448369200EBFD20 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FE2FB982448369200EBFD20 /* MemoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2FE2FBA72448375700EBFD20 /* MemoWidget.entitlements */,
+				2FE2FB992448369200EBFD20 /* TodayViewController.swift */,
+				2FE2FB9B2448369200EBFD20 /* MainInterface.storyboard */,
+				2FE2FB9E2448369200EBFD20 /* Info.plist */,
+			);
+			path = MemoWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,15 +175,34 @@
 				2F05AB7B243B14EF002B1D2C /* Sources */,
 				2F05AB7C243B14EF002B1D2C /* Frameworks */,
 				2F05AB7D243B14EF002B1D2C /* Resources */,
+				2FE2FBA52448369200EBFD20 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2FE2FBA02448369200EBFD20 /* PBXTargetDependency */,
 			);
 			name = Assignment2;
 			productName = Assignment2;
 			productReference = 2F05AB7F243B14EF002B1D2C /* Assignment2.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2FE2FB932448369200EBFD20 /* MemoWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FE2FBA22448369200EBFD20 /* Build configuration list for PBXNativeTarget "MemoWidget" */;
+			buildPhases = (
+				2FE2FB902448369200EBFD20 /* Sources */,
+				2FE2FB912448369200EBFD20 /* Frameworks */,
+				2FE2FB922448369200EBFD20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MemoWidget;
+			productName = MemoWidget;
+			productReference = 2FE2FB942448369200EBFD20 /* MemoWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -122,12 +210,15 @@
 		2F05AB77243B14EF002B1D2C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = urbanGY;
 				TargetAttributes = {
 					2F05AB7E243B14EF002B1D2C = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					2FE2FB932448369200EBFD20 = {
+						CreatedOnToolsVersion = 11.4;
 					};
 				};
 			};
@@ -145,6 +236,7 @@
 			projectRoot = "";
 			targets = (
 				2F05AB7E243B14EF002B1D2C /* Assignment2 */,
+				2FE2FB932448369200EBFD20 /* MemoWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +252,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FE2FB922448369200EBFD20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE2FB9D2448369200EBFD20 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -170,17 +270,36 @@
 				2F05AB87243B14EF002B1D2C /* ViewController.swift in Sources */,
 				2F05AB83243B14EF002B1D2C /* AppDelegate.swift in Sources */,
 				2F05AB85243B14EF002B1D2C /* SceneDelegate.swift in Sources */,
-				2F2AF5D82440CF04005A766D /* Memo+CoreDataProperties.swift in Sources */,
-				2F2AF5D72440CF04005A766D /* Memo+CoreDataClass.swift in Sources */,
+				2FE2FB8E24481DD500EBFD20 /* Memo+CoreDataClass.swift in Sources */,
 				2F2AF5C92440C173005A766D /* CoreManager.swift in Sources */,
 				2F05AB9A243B19EF002B1D2C /* NoticeTableViewCell.swift in Sources */,
 				2F05AB9C243B1FC5002B1D2C /* ContentViewController.swift in Sources */,
+				2FE2FB8F24481DD500EBFD20 /* Memo+CoreDataProperties.swift in Sources */,
 				2F05AB98243B17C1002B1D2C /* noticeModel.swift in Sources */,
 				2F2AF5CC2440CC8E005A766D /* Memo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FE2FB902448369200EBFD20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE2FBB1244841B300EBFD20 /* Memo+CoreDataProperties.swift in Sources */,
+				2FE2FBB2244841B700EBFD20 /* Memo+CoreDataClass.swift in Sources */,
+				2FE2FB9A2448369200EBFD20 /* TodayViewController.swift in Sources */,
+				2FE2FBA924483B4B00EBFD20 /* Memo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FE2FBA02448369200EBFD20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FE2FB932448369200EBFD20 /* MemoWidget */;
+			targetProxy = 2FE2FB9F2448369200EBFD20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2F05AB88243B14EF002B1D2C /* Main.storyboard */ = {
@@ -197,6 +316,14 @@
 				2F05AB8E243B14F1002B1D2C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2FE2FB9B2448369200EBFD20 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FE2FB9C2448369200EBFD20 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -319,8 +446,11 @@
 		2F05AB94243B14F1002B1D2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Assignment2/Assignment2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LH83H22J6J;
 				INFOPLIST_FILE = Assignment2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -336,8 +466,11 @@
 		2F05AB95243B14F1002B1D2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Assignment2/Assignment2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LH83H22J6J;
 				INFOPLIST_FILE = Assignment2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,6 +478,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = urbanGY.com.github.Assignment2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2FE2FBA32448369200EBFD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MemoWidget/MemoWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LH83H22J6J;
+				INFOPLIST_FILE = MemoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = urbanGY.com.github.Assignment2.MemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2FE2FBA42448369200EBFD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MemoWidget/MemoWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LH83H22J6J;
+				INFOPLIST_FILE = MemoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = urbanGY.com.github.Assignment2.MemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,6 +542,15 @@
 			buildConfigurations = (
 				2F05AB94243B14F1002B1D2C /* Debug */,
 				2F05AB95243B14F1002B1D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FE2FBA22448369200EBFD20 /* Build configuration list for PBXNativeTarget "MemoWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FE2FBA32448369200EBFD20 /* Debug */,
+				2FE2FBA42448369200EBFD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

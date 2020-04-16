@@ -9,6 +9,7 @@
 import Foundation
 
 class NoticeData {
+    var id: Int64?
     var title: String
     var content: String
     
@@ -17,6 +18,13 @@ class NoticeData {
         self.content = content
     }
     
+    func setId(id: Int64) -> Void {
+        self.id = id
+    }
+    
+    func getId() -> Int64 {
+        return self.id!
+    }
     func getTitle() -> String {
         return self.title
     }
