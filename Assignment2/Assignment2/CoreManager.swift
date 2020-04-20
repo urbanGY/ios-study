@@ -27,6 +27,7 @@ class CoreManager {
             do {
                 if let fetchResult: [Memo] = try context.fetch(fetchRequest) as? [Memo] {
                     models = fetchResult
+                    print("in app models length : \(models.count)")
                 }
             } catch let error as NSError {
                 print("Could not fetch: \(error), \(error.userInfo)")

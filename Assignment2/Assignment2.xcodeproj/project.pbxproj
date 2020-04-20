@@ -27,6 +27,10 @@
 		2FE2FBA924483B4B00EBFD20 /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */; };
 		2FE2FBB1244841B300EBFD20 /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8D24481DD500EBFD20 /* Memo+CoreDataProperties.swift */; };
 		2FE2FBB2244841B700EBFD20 /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FB8C24481DD500EBFD20 /* Memo+CoreDataClass.swift */; };
+		2FE2FBB4244846A200EBFD20 /* CoreManagerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FBB3244846A200EBFD20 /* CoreManagerWidget.swift */; };
+		2FE2FBB524484EF500EBFD20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F05AB8B243B14F1002B1D2C /* Assets.xcassets */; };
+		2FE2FBB8244D6D7200EBFD20 /* PersistantContainerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FBB7244D6D7200EBFD20 /* PersistantContainerCustom.swift */; };
+		2FE2FBBC244DA47600EBFD20 /* PersistantContainerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2FBB7244D6D7200EBFD20 /* PersistantContainerCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,8 @@
 		2FE2FB9E2448369200EBFD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FE2FBA62448372300EBFD20 /* Assignment2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Assignment2.entitlements; sourceTree = "<group>"; };
 		2FE2FBA72448375700EBFD20 /* MemoWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidget.entitlements; sourceTree = "<group>"; };
+		2FE2FBB3244846A200EBFD20 /* CoreManagerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManagerWidget.swift; sourceTree = "<group>"; };
+		2FE2FBB7244D6D7200EBFD20 /* PersistantContainerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantContainerCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 				2F05AB99243B19EF002B1D2C /* NoticeTableViewCell.swift */,
 				2F05AB9B243B1FC5002B1D2C /* ContentViewController.swift */,
 				2F2AF5C82440C173005A766D /* CoreManager.swift */,
+				2FE2FBB7244D6D7200EBFD20 /* PersistantContainerCustom.swift */,
 				2F2AF5CA2440CC8E005A766D /* Memo.xcdatamodeld */,
 			);
 			path = Assignment2;
@@ -161,6 +168,7 @@
 				2FE2FB992448369200EBFD20 /* TodayViewController.swift */,
 				2FE2FB9B2448369200EBFD20 /* MainInterface.storyboard */,
 				2FE2FB9E2448369200EBFD20 /* Info.plist */,
+				2FE2FBB3244846A200EBFD20 /* CoreManagerWidget.swift */,
 			);
 			path = MemoWidget;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE2FBB524484EF500EBFD20 /* Assets.xcassets in Resources */,
 				2FE2FB9D2448369200EBFD20 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +281,7 @@
 				2F05AB85243B14EF002B1D2C /* SceneDelegate.swift in Sources */,
 				2FE2FB8E24481DD500EBFD20 /* Memo+CoreDataClass.swift in Sources */,
 				2F2AF5C92440C173005A766D /* CoreManager.swift in Sources */,
+				2FE2FBBC244DA47600EBFD20 /* PersistantContainerCustom.swift in Sources */,
 				2F05AB9A243B19EF002B1D2C /* NoticeTableViewCell.swift in Sources */,
 				2F05AB9C243B1FC5002B1D2C /* ContentViewController.swift in Sources */,
 				2FE2FB8F24481DD500EBFD20 /* Memo+CoreDataProperties.swift in Sources */,
@@ -284,6 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE2FBB4244846A200EBFD20 /* CoreManagerWidget.swift in Sources */,
+				2FE2FBB8244D6D7200EBFD20 /* PersistantContainerCustom.swift in Sources */,
 				2FE2FBB1244841B300EBFD20 /* Memo+CoreDataProperties.swift in Sources */,
 				2FE2FBB2244841B700EBFD20 /* Memo+CoreDataClass.swift in Sources */,
 				2FE2FB9A2448369200EBFD20 /* TodayViewController.swift in Sources */,

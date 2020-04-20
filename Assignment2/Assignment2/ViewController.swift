@@ -56,7 +56,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             data.setId(id: saveId)
             self.noticeList.append(data)
         }
-        maxId = self.noticeList[self.noticeList.count-1].getId()
+        if self.noticeList.count == 0 {
+            maxId = 0
+        }else {
+            maxId = self.noticeList[self.noticeList.count-1].getId() 
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
