@@ -8,17 +8,22 @@
 
 import UIKit
 import NotificationCenter
+
 class TodayViewController: UIViewController, NCWidgetProviding {
-    lazy var secureAppGroupPersistentStoreURL : URL = {
-       let fileManager = FileManager.default
-       let groupDirectory = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.Assignment2")!
-       return groupDirectory.appendingPathComponent("Memo")
-    }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        let memo: [Memo] = CoreManager.shared.getMemo(ascending: true)
+        print("length memo : \(memo.count)")
+        for elem in memo {
+            let saveId = elem.id
+            print("save id : \(saveId)")
+            let saveTitle = elem.title!
+            print("save title : \(saveTitle)")
+            let saveContent = elem.content!
+            print("save content : \(saveContent)\n")
+        }
+        print("load")
         // Do any additional setup after loading the view.
     }
         
