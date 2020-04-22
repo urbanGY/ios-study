@@ -48,6 +48,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vfq-52-iOo">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="xaa-D1-hZX">
+                            <connections>
+                                <action selector="noticeCheckBtn:" destination="BYZ-38-t0r" id="Fkr-85-hFs"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dsa-kC-z5q">
                             <connections>
                                 <segue destination="BY7-5i-i5H" kind="show" identifier="newMemo" id="cgF-IE-bMr"/>
