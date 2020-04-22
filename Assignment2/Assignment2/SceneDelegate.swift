@@ -7,16 +7,51 @@
 //
 
 import UIKit
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        let items = urlComponents?.queryItems
 
+        let key = items?.first?.name
+        let value = items?.first?.value
+
+        NoticeData.key = key!
+        NoticeData.value = value!
+    }
+    //        var result = [String:String]()
+    //        result["key"] = key
+    //        result["value"] = value
+    //        NotificationCenter.default.post(name: NSNotification.Name("setResult"), object: result)
+            
+            
+    //        AppDelegate.application(
+    //        UIApplication.shared,
+    //        open: url,
+    //        sourceApplication: nil,
+    //        annotation: [UIApplication.OpenURLOptionsKey.annotation])
+            
+    //        let _ = UIApplication.shared.application(
+    //            UIApplication.shared,
+    //            open: url,
+    //            sourceApplication: nil,
+    //            annotation: [UIApplication.OpenURLOptionsKey.annotation])
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        let urlinfo = connectionOptions.urlContexts
+        
+        if let url = urlinfo.first?.url {
+            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let items = urlComponents?.queryItems
+            let key = items?.first?.name
+            let value = items?.first?.value
+            NoticeData.key = key!
+            NoticeData.value = value!
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

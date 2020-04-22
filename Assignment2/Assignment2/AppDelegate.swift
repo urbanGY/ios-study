@@ -11,7 +11,33 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+////        let viewController = appDelegate.window?.rootViewController as! ViewController
+//
+//        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+//        let items = urlComponents?.queryItems
+//
+//        let key = items?.first?.name
+//        let value = items?.first?.value
+//
+//        NoticeData.key = key!
+//        NoticeData.value = value!
+//
+//
+//        var result = [String:String]()
+//        result["key"] = key
+//        result["value"] = value
+//
+////        viewController.sendID = "왜 안되는 것이지?"
+//
+//        NotificationCenter.default.post(name: NSNotification.Name("setResult"), object: result)
 
+        return true
+    }
+
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSCustomPersistentContainer(name: "Memo") // 여기는 파일명을 적어줘요.
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -26,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+//    func applicationDidFinishLaunching(_ application: UIApplication) {
+//        return
+//    }
 
     // MARK: UISceneSession Lifecycle
 

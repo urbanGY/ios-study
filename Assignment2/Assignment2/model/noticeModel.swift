@@ -33,5 +33,6 @@ class NoticeData {
         return self.content
     }
     
-    static var noticeList: [NoticeData] = []
+    static var key : String = "기본키"
+    static var value: String = "기본 값"
 }

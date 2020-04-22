@@ -16,7 +16,9 @@ protocol contentDelegate {
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, contentDelegate { // 여기에 delegate 꼭 추가해줘야 아래에 = self 가 가능
     var maxId:Int64 = 0
     var noticeList:[NoticeData] = []
+    
     @IBOutlet weak var noticeTableView: UITableView!
+    @IBOutlet weak var sendChecker: UIBarButtonItem!
     
     func provider(_ noticeData:NoticeData, _ rowIndex:Int?) {
         var title = noticeData.getTitle()
@@ -62,8 +64,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             maxId = self.noticeList[self.noticeList.count-1].getId() 
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveResult(_:)), name: NSNotification.Name("setResult"), object: nil)
+        alermFunc(NoticeData.key, NoticeData.value)
     }
     
+    @objc func receiveResult(_ notification: Notification) {
+        let resultVal = notification.object as! [String:String]
+        let key = resultVal["key"]!
+        let value = resultVal["value"]!
+        alermFunc(key, value)
+    }
+    
+    @IBAction func noticeCheckBtn(_ sender: UIBarButtonItem) {
+        alermFunc(NoticeData.key, NoticeData.value)
+    }
+    
+    func alermFunc(_ key: String, _ value: String) -> Void {
+        let msg = "key : \(key) , value : \(value)"
+        let alert = UIAlertController(title: "넘어온 것은?", message: msg , preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         noticeTableView.reloadData()
@@ -88,6 +113,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     vc.noticeData = sendData
                     vc.rowIndex = indexPath.row
                     vc.delegate = self
+                    
                 }
             }
         }
