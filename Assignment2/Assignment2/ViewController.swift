@@ -63,29 +63,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else {
             maxId = self.noticeList[self.noticeList.count-1].getId() 
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveResult(_:)), name: NSNotification.Name("setResult"), object: nil)
-        alermFunc(NoticeData.key, NoticeData.value)
+        NotificationCenter.default.addObserver(self,
+                                        selector: #selector(handleTodayExtension(_:)),
+                                        name: NSNotification.Name("handleExtension"),
+                                        object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("handleExtension"), object: nil)
     }
     
-    @objc func receiveResult(_ notification: Notification) {
-        let resultVal = notification.object as! [String:String]
-        let key = resultVal["key"]!
-        let value = resultVal["value"]!
-        alermFunc(key, value)
+    @objc func handleTodayExtension(_ notification: Notification) {
+        if let value = NoticeData.value, value != "main" {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "contentVc") as! ContentViewController
+            
+            var uid = Int64(value)
+            for notice in self.noticeList {
+                if notice.getId() == uid {
+                    vc.noticeData = notice
+                    let index = self.noticeList.firstIndex(where: {$0 === notice})
+                    vc.rowIndex = index
+                    vc.delegate = self
+                    break
+                }
+            }
+            self.navigationController?.pushViewController(vc, animated:false)
+        }
     }
     
     @IBAction func noticeCheckBtn(_ sender: UIBarButtonItem) {
-        alermFunc(NoticeData.key, NoticeData.value)
+        if let key = NoticeData.key, let value = NoticeData.value {
+            alermFunc(key, value)
+        }
+        alermFunc("없어유", "없어유")
     }
     
     func alermFunc(_ key: String, _ value: String) -> Void {
         let msg = "key : \(key) , value : \(value)"
-        let alert = UIAlertController(title: "넘어온 것은?", message: msg , preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            
+        let alert = UIAlertController(title: "알람 값은?", message: msg , preferredStyle: UIAlertController.Style.alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
         }
-        alert.addAction(okAction)
+        alert.addAction(ok)
         present(alert, animated: false, completion: nil)
     }
 
