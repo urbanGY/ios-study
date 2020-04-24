@@ -33,6 +33,6 @@ class NoticeData {
         return self.content
     }
     
-    static var key : String = "기본키"
-    static var value: String = "기본 값"
+    static var key : String?
+    static var value: String?
 }

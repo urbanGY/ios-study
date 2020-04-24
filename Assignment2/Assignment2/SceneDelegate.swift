@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         NoticeData.key = key!
         NoticeData.value = value!
+        NotificationCenter.default.post(name: NSNotification.Name("handleExtension"), object: nil)
     }
     //        var result = [String:String]()
     //        result["key"] = key
