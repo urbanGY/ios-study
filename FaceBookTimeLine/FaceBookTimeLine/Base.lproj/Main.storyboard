@@ -15,11 +15,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="301" id="rlD-Vz-OGc" customClass="UITableTableViewCell" customModule="FaceBookTimeLine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="301"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="300" id="rlD-Vz-OGc" customClass="UITableTableViewCell" customModule="FaceBookTimeLine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rlD-Vz-OGc" id="0o0-8u-an6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="301"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="text" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baE-sM-IUG">
@@ -58,16 +58,41 @@
                                             <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-PG-OLt">
+                                            <rect key="frame" x="20" y="247" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="댓글을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Giv-Yt-o6F">
+                                            <rect key="frame" x="73" y="250" width="283" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTX-Zy-gui">
+                                            <rect key="frame" x="364" y="247" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="등록">
+                                                <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="register:" destination="rlD-Vz-OGc" eventType="touchUpInside" id="10r-3x-dTr"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <connections>
                                     <outlet property="arrow" destination="3l8-bw-jQh" id="I6a-QX-HEa"/>
+                                    <outlet property="commentBar" destination="Giv-Yt-o6F" id="cca-Qf-snq"/>
                                     <outlet property="contentText" destination="baE-sM-IUG" id="zp5-Dc-CXQ"/>
                                     <outlet property="destination" destination="O5G-7q-aon" id="ozN-f9-Zpd"/>
                                     <outlet property="hour" destination="rrv-EO-PoL" id="fF5-dr-8Yg"/>
+                                    <outlet property="register" destination="KTX-Zy-gui" id="iU2-Sd-487"/>
+                                    <outlet property="registerBtn" destination="KTX-Zy-gui" id="aGS-nS-fRq"/>
                                     <outlet property="userImage" destination="LcB-fN-bHX" id="64a-JM-Iqn"/>
                                     <outlet property="userName" destination="ZgG-3b-Ip5" id="joa-LN-Sa7"/>
+                                    <outlet property="writer" destination="1Gh-PG-OLt" id="Pc1-ml-0b7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
